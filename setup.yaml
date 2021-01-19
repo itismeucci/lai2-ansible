@@ -1,0 +1,47 @@
+---
+- name: setup new machines
+  hosts: lai2
+  remote_user: tb15
+  become: yes
+  tasks:
+  - name: install utilis
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - vim
+      - tmux
+      - docker.io
+      update_cache: yes
+  - name: set hostname
+    hostname:
+      name: lai02-01
+  - name: change hostname in /etc/hosts
+    ansible.builtin.replace:
+      path: /etc/hosts
+      regexp: '(\s+)lenovo(\s+.*)?$'
+      replace: '\1lai02-01\2'
+  - name: Create user admin
+    user:
+      name: admin
+      #mkpasswd --method=sha-512
+      password: '$6$4AJSVzfl.IYd$oizWEQbzQ1Yy3j3HCOgUOvz3x8.4yaDZTXgIYNVUlDck4ESZ.QFHiPd86cREsMZ7bHOkTGY1yRVP7EiTSMiDd0'
+      groups:
+       - docker
+       - sudo
+      shell: /bin/bash
+      state: present
+  - name: Create user informatica
+    user:
+      name: informatica
+      password: '$6$Tz5vwsokc5qqwzSB$SawhY5tPTENsqS9JYu0GFTNvHGwJszsw5vAZ7TVf9jt5/zg8X2apN37ipBSOdQUdREgEEPxWBV0G8Zf7qiWV80'
+      groups:
+       - docker
+      shell: /bin/bash
+      state: present
+  - name: Create user itismeucci
+    user:
+      name: itismeucci
+      password: '$6$5aBTfKvz$zzs1M/1hAwwZPIWBDCU7gPUPkPSwBpSQGJpkifoYr1aOycTBOGBmTm0R5/d0dc7SrqqOiVTj4Gngo/K/iLK.M/'
+      shell: /bin/bash
+      state: present
