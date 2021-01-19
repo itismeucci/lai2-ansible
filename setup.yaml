@@ -21,7 +21,7 @@
       name: "{{ hostname }}"
 
   - name: Change hostname in /etc/hosts
-    ansible.builtin.replace:
+    replace:
       path: /etc/hosts
       regexp: "Lenovo"
       replace: "{{ hostname }}"
@@ -64,7 +64,13 @@
       classic: yes
 
   - name: Disable automatic login
-    ansible.builtin.replace:
+    replace:
       path: /etc/gdm3/custom.conf
       regexp: "AutomaticLoginEnable=True"
       replace: "AutomaticLoginEnable=False"
+
+  - name: Disable suspend on lid close
+    replace:
+      path: /etc/systemd/logind.conf
+      regexp: "#HandleLidSwitch=suspend"
+      replace: "HandleLidSwitch=ignore"
