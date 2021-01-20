@@ -74,3 +74,9 @@
       path: /etc/systemd/logind.conf
       regexp: "#HandleLidSwitch=suspend"
       replace: "HandleLidSwitch=ignore"
+
+  - name: Disable apt auto-upgrades
+    replace:
+      path: /etc/apt/apt.conf.d/20auto-upgrades
+      regexp: "1"
+      replace: "0"
