@@ -1,5 +1,5 @@
 [lai2]
-192.168.0.86 hostname=lai2-01
+192.168.0.85 hostname=lai2-01
 
 [lai2:vars]
 ansible_user=tb15
