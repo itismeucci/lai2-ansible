@@ -84,7 +84,7 @@
     mode: '0600'
 
 - name: Change chown for .ssh directory on informatica
-  ansible.builtin.file:
+  file:
     path: /home/informatica/.ssh
     mode: '0700'
     owner: informatica
@@ -99,14 +99,14 @@
     mode: '0600'
 
 - name: Change chown for .ssh directory on admin
-  ansible.builtin.file:
+  file:
     path: /home/admin/.ssh
     mode: '0700'
     owner: admin
     group: admin
 
 - name: Change chown for id_rsa.pub on admin
-  ansible.builtin.file:
+  file:
     path: /home/admin/.ssh/id_rsa.pub
     mode: '0644'
     owner: admin
@@ -117,3 +117,12 @@
     path: /etc/ssh/sshd_config
     regexp: "#PasswordAuthentication yes"
     replace: "PasswordAuthentication no"
+  notify: restart sshd
+
+- name: Copy win10.sh script
+  copy:
+    src: itismeucci/win10.sh
+    dest: /home/itismeucci/
+    owner: itismeucci
+    group: itismeucci
+    mode: '0755'
