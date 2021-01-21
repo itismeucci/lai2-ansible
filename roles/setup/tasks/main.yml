@@ -1,4 +1,18 @@
 ---
+- name: Accept virtualbox-ext-pack seen license
+  debconf:
+    name: virtualbox-ext-pack
+    question: virtualbox-ext-pack/license
+    value: 'true'
+    vtype: seen
+
+- name: Accept virtualbox-ext-pack select license
+  debconf:
+    name: virtualbox-ext-pack
+    question: virtualbox-ext-pack/license
+    value: 'true'
+    vtype: select
+
 - name: Install apt packages
   apt:
     name: "{{ packages }}"
@@ -8,6 +22,8 @@
     - tmux
     - docker.io
     - openjdk-11-jdk
+    - virtualbox
+    - virtualbox-ext-pack
     update_cache: yes
 
 - name: Set hostname
@@ -107,13 +123,6 @@
   file:
     path: /home/admin/.ssh
     mode: '0700'
-    owner: admin
-    group: admin
-
-- name: Change chown for id_rsa.pub on admin
-  file:
-    path: /home/admin/.ssh/id_rsa.pub
-    mode: '0644'
     owner: admin
     group: admin
 
