@@ -1,5 +1,5 @@
 ---
-- name: Install utilis
+- name: Install apt packages
   apt:
     name: "{{ packages }}"
   vars:
@@ -55,6 +55,11 @@
 - name: Install netbeans
   community.general.snap:
     name: netbeans
+    classic: yes
+
+- name: Install brackets
+  community.general.snap:
+    name: brackets
     classic: yes
 
 - name: Disable automatic login
@@ -126,3 +131,20 @@
     owner: itismeucci
     group: itismeucci
     mode: '0755'
+
+- name: Create a itismeucci admin autostart directory
+  file:
+    path: /home/itismeucci/.config/autostart/
+    state: directory
+    owner: itismeucci
+    group: itismeucci
+    mode: '0700'
+
+- name: Copy Win10 autostart
+  copy:
+    src: itismeucci/VBoxManage.desktop
+    dest: /home/itismeucci/.config/autostart/
+    owner: itismeucci
+    group: itismeucci
+    mode: '0700'
+

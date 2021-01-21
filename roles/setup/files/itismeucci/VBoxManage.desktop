@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/itismeucci/win10.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Win10
+Name=Win10
+Comment[en_US]=
+Comment=
