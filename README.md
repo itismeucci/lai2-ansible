@@ -1,3 +1,20 @@
+# Configure DHCP + static IP
+```
+# /etc/netplan/01-network-manager-all.yaml 
+
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    enp1s0:
+      dhcp4: yes
+      dhcp6: yes
+      addresses:
+        - 10.1.1.1/24
+```
+
+
 # Setup
 ansible-galaxy collection install community.general
 ansible-galaxy install pixelart.chrome

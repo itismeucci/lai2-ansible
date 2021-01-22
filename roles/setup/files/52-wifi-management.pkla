@@ -1,0 +1,6 @@
+[Wifi management]
+Identity=unix-users:*
+Action=org.freedesktop.NetworkManager.*
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
