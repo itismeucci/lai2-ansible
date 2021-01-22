@@ -36,7 +36,19 @@
     - maven
     - virtualbox
     - virtualbox-ext-pack
+    - silversearcher-ag
     update_cache: yes
+
+- name: Install snap packages
+  community.general.snap:
+    name: "{{ packages }}"
+    classic: yes
+  vars:
+    packages:
+    - brackets
+    - eclipse
+    - netbeans
+    - arduino
 
 - name: Create user admin
   user:
@@ -68,21 +80,6 @@
     state: present
     groups:
     - vboxusers
-
-- name: Install eclipse
-  community.general.snap:
-    name: eclipse
-    classic: yes
-
-- name: Install netbeans
-  community.general.snap:
-    name: netbeans
-    classic: yes
-
-- name: Install brackets
-  community.general.snap:
-    name: brackets
-    classic: yes
 
 - name: Disable automatic login
   replace:
