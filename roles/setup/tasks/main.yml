@@ -29,6 +29,7 @@
   vars:
     packages:
     - vim
+    - git
     - tmux
     - docker.io
     - openjdk-11-jdk
@@ -146,14 +147,6 @@
     group: itismeucci
     mode: '0755'
 
-- name: Create a itismeucci admin autostart directory
-  file:
-    path: /home/itismeucci/.config/autostart/
-    state: directory
-    owner: itismeucci
-    group: itismeucci
-    mode: '0700'
-
 - name: Copy Win10 autostart
   copy:
     src: itismeucci/VBoxManage.desktop
@@ -174,7 +167,6 @@
   include_role:
     name: pixelart.chrome
 
-
 - name: Allow users to change WiFi
   notify: restart network-manager
   copy:
@@ -183,3 +175,24 @@
     owner: root
     group: root
     mode: '0644'
+
+- name: Setup git config user.name
+  become_user: informatica
+  git_config:
+    name: user.name
+    scope: global
+    value: "{{ hostname }}"
+
+- name: Setup git config user.email
+  become_user: informatica
+  git_config:
+    name: user.email
+    scope: global
+    value: "{{ hostname }}@itismeucci.com"
+
+- name: Setup git editor
+  become_user: informatica
+  git_config:
+    name: core.editor
+    scope: global
+    value: nano
