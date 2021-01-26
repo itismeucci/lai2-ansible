@@ -1,0 +1,12 @@
+[Unit]
+Description=Disconnect Firebirs
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/home/admin/FireBirdLogout
+
+[Install]
+WantedBy=halt.target reboot.target shutdown.target

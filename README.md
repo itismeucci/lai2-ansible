@@ -24,7 +24,7 @@ ansible-playbook -i hosts --verbose -K setup.yml
 
 # Distribute 'informatica' home template
 
-Configure the `informatica_template_master` in `hosts` and run
+Configure `informatica_template_master` in `hosts` and run
 
 ```
 ansible-playbook -i hosts --verbose -K informatica.yml

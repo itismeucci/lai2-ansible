@@ -9,6 +9,11 @@
     regexp: "Lenovo"
     replace: "{{ hostname }}"
 
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
 - name: Accept virtualbox-ext-pack seen license
   debconf:
     name: virtualbox-ext-pack
@@ -37,7 +42,6 @@
     - virtualbox
     - virtualbox-ext-pack
     - silversearcher-ag
-    update_cache: yes
 
 - name: Install snap packages
   community.general.snap:
@@ -195,4 +199,48 @@
     name: core.editor
     scope: global
     value: nano
+
+- name: Copy HomeSync script
+  copy:
+    src: admin/HomeSync
+    dest: /home/admin
+    owner: admin
+    group: admin
+    mode: '0755'
+
+- name: Copy FireBirdLogout script
+  copy:
+    src: admin/FireBirdLogout
+    dest: /home/admin
+    owner: admin
+    group: admin
+    mode: '0755'
+
+- name: Copy home_sync.service
+  copy:
+    src: home_sync.service
+    dest: /etc/systemd/system
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copy stop_firebird.service
+  copy:
+    src: stop_firebird.service
+    dest: /etc/systemd/system
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Enable home_sync service
+  systemd:
+    name: home_sync
+    enabled: yes
+    masked: no
+
+- name: Enable stop_firebird service
+  systemd:
+    name: stop_firebird
+    enabled: yes
+    masked: no
 

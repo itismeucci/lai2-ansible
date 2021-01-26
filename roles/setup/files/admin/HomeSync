@@ -1,0 +1,6 @@
+#!/bin/bash
+tar --exclude='/home/informatica/snap' -zcvf  /home/informatica_bak.tar.gz /home/informatica/*
+chown admin:admin /home/informatica_bak.tar.gz
+chmod 600 /home/informatica_bak.tar.gz
+rm -rf /home/informatica
+tar zxvf /home/templates/informatica.tar.gz -C /
