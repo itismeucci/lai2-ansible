@@ -1,0 +1,10 @@
+---
+- name: Copy itismeucci.tar.gz
+  delegate_to: "{{itismeucci_template_master}}"
+  become_user: admin
+  synchronize:
+    src: /tmp/itismeucci.tar.gz
+    dest: /home/templates/
+
+- name: untar itismeucci.tar.gz on remote
+  command: tar zxvf /home/templates/itismeucci.tar.gz -C /

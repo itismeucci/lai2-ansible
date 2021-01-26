@@ -1,0 +1,5 @@
+---
+- name: create itismeucci.tar.gz on remote
+  run_once: true
+  delegate_to: "{{itismeucci_template_master}}"
+  command: tar zcvfp /tmp/itismeucci.tar.gz /home/itismeucci
