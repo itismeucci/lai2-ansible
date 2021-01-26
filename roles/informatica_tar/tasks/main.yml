@@ -1,0 +1,13 @@
+---
+- name: create informatica.tar.gz on remote
+  run_once: true
+  delegate_to: "{{informatica_template_master}}"
+  command: tar zcvfp /tmp/informatica.tar.gz /home/informatica
+
+- name: Copy informatica.tar.gz file on local tmp
+  run_once: true
+  delegate_to: "{{informatica_template_master}}"
+  fetch:
+    src: /tmp/informatica.tar.gz
+    dest: /tmp/
+    flat: yes

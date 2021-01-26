@@ -1,8 +1,7 @@
 ---
 - name: rsync informatica template
   hosts: lai2
-  become: no
+  become: yes
   roles:
-  - informatica_create_template
-  - informatica_rsync
-  - informatica_cleanup
+  - informatica_tar
+  - informatica_scp

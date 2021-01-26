@@ -1,0 +1,8 @@
+---
+- name: Copy informatica.tar.gz
+  copy:
+    src: /tmp/informatica.tar.gz
+    dest: /home/templates/
+    owner: admin
+    group: admin
+    mode: '0644'
