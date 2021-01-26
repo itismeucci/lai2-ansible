@@ -1,0 +1,16 @@
+---
+- name: create a temporary directory.
+  run_once: true
+  delegate_to: localhost
+  tempfile:
+    state: directory
+  register: tmp_informatica
+
+- name: create informatica template home folder using rsync
+  run_once: true
+  delegate_to: localhost
+  command: |
+    rsync -ah --delete --numeric-ids  
+    -e "ssh -i ./roles/setup/files/admin/.ssh/id_rsa"
+    informatica@{{informatica_template_master}}:/home/informatica/* {{ tmp_informatica.path }}/
+

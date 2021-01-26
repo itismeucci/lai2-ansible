@@ -1,0 +1,6 @@
+---
+- name: Synchronization of informatica template to remote hosts
+  command: |
+    rsync -ah --delete --numeric-ids
+    -e "ssh -i ./roles/setup/files/admin/.ssh/id_rsa"
+    {{ tmp_informatica.path }}/* admin@{{inventory_hostname}}:/home/templates/informatica/

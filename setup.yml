@@ -1,7 +1,6 @@
 ---
 - name: Setup new machines
   hosts: lai2
-  remote_user: tb15
   become: yes
   roles:
   - setup

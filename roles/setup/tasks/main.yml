@@ -156,7 +156,7 @@
 
 - name: Create /home/templates directory
   ansible.builtin.file:
-    path: /home/templates
+    path: /home/templates/informatica
     state: directory
     mode: '0755'
     owner: admin
@@ -195,3 +195,4 @@
     name: core.editor
     scope: global
     value: nano
+

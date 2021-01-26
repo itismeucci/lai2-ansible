@@ -1,0 +1,8 @@
+---
+- name: remove the temporary directory
+  run_once: true
+  delegate_to: localhost
+  file:
+    path: "{{ tmp_informatica.path }}"
+    state: absent
+  when: tmp_informatica.path is defined

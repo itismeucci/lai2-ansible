@@ -19,7 +19,7 @@ network:
 ```
 ansible-galaxy collection install community.general
 ansible-galaxy install pixelart.chrome
-ansible-playbook setup.yaml -i hosts --verbose -K
+ansible-playbook -i hosts --verbose -K setup.yml 
 ```
 
 # Utility
