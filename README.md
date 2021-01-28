@@ -16,19 +16,18 @@ network:
 
 
 # Setup
-```
-ansible-galaxy collection install community.general
-ansible-galaxy install pixelart.chrome
-ansible-playbook -i hosts --verbose -K setup.yml
-```
 
-Preparare il template per la home di `informatica` e `itismeucci` su un PC e distribuirli (vedi sotto).
-
-Registrare la macchina virtuale su Virtualbox
-```
-ansible-playbook -i hosts --verbose -K registervm.yml
-```
-
+- Eseguire i seguenti comandi
+  ```
+  ansible-galaxy collection install community.general
+  ansible-galaxy install pixelart.chrome
+  ansible-playbook -i hosts --verbose -K setup.yml
+  ```
+- Preparare il template per la home di `informatica` e di `itismeucci` su un PC e distribuirli (vedi sotto).
+- Registrare la macchina virtuale su Virtualbox
+  ```
+  ansible-playbook -i hosts --verbose -K registervm.yml
+  ```
 
 # Distribuire il template per la home di 'informatica'
 
