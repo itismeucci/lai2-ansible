@@ -3,6 +3,7 @@
 # Setup
 ## Sul nuovo PC
 
+- Se necessario, impostare il layout della tastiera in italiano
 - Configurare DHCP + static IP modificando il file `/etc/netplan/01-network-manager-all.yaml`
 
   ```
@@ -17,7 +18,6 @@
         addresses:
           - 10.1.1.1/24
   ```
-- Se necessario, impostare il leyour della tastiera in italiano
 
 ## Sul Control-node (dove è installato ansible)
 
