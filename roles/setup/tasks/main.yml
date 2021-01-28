@@ -6,7 +6,7 @@
 - name: Change hostname in /etc/hosts
   replace:
     path: /etc/hosts
-    regexp: "Lenovo"
+    regexp: "{{ new_pc_default_hostname }}"
     replace: "{{ hostname }}"
 
 - name: Update and upgrade apt packages

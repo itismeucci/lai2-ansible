@@ -22,6 +22,7 @@
 ## Sul Control-node (dove è installato ansible)
 
 - Popolare il file `hosts` con i corretti indirizzi IP
+- Configurare `new_pc_default_hostname` in `hosts` inserendo l'hostname predefinito dei nuovi PC
 - Eseguire i seguenti comandi
   ```
   ansible-galaxy collection install community.general
