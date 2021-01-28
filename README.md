@@ -1,22 +1,20 @@
-# Configurare DHCP + static IP
-```
-# /etc/netplan/01-network-manager-all.yaml
-
-# Let NetworkManager manage all devices on this system
-network:
-  version: 2
-  renderer: NetworkManager
-  ethernets:
-    enp1s0:
-      dhcp4: yes
-      dhcp6: yes
-      addresses:
-        - 10.1.1.1/24
-```
 
 
 # Setup
 
+- Configurare DHCP + static IP modificando il file `/etc/netplan/01-network-manager-all.yaml`
+  ```
+  # Let NetworkManager manage all devices on this system
+  network:
+    version: 2
+    renderer: NetworkManager
+    ethernets:
+      enp1s0:
+        dhcp4: yes
+        dhcp6: yes
+        addresses:
+          - 10.1.1.1/24
+  ```
 - Eseguire i seguenti comandi
   ```
   ansible-galaxy collection install community.general
@@ -39,7 +37,7 @@ ansible-playbook -i hosts --verbose -K informatica.yml
 
 `informatica_template_master` è l'host da dove prelevare la home di template per `informatica`
 
-# Distribuire il template per la home di 'itismeucci' compreso il VDI
+# Modificare e distribuire la macchia wirtuale Win10 (Win10.vdi ~20GB) e il template per la home di 'itismeucci'
 
 - accedere al PC con itismeucci
 - rimuovere fullscreen con CTRL+f
@@ -53,7 +51,7 @@ ansible-playbook -i hosts --verbose -K informatica.yml
 - effettuare tutte le modifiche necessarie, compresi gli aggiornamenti di Windows
 - spengere Windows
 - da Virtual Media Manager rendere il disco immutabile (verrà rilasciato)
-- riagganciare il disco alla virtual machine
+- ricollegare il disco alla virtual machine
 - distribuire il VDI:
 
   Configurare `itismeucci_template_master` in `hosts` ed eseguire
