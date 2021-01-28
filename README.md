@@ -1,8 +1,10 @@
 
 
 # Setup
+## Sul nuovo PC
 
-- Configurare DHCP + static IP sul nuovo PC modificando il file `/etc/netplan/01-network-manager-all.yaml`
+- Configurare DHCP + static IP modificando il file `/etc/netplan/01-network-manager-all.yaml`
+
   ```
   # Let NetworkManager manage all devices on this system
   network:
@@ -15,6 +17,11 @@
         addresses:
           - 10.1.1.1/24
   ```
+- Se necessario, impostare il leyour della tastiera in italiano
+
+## Sul Control-node (dove è installato ansible)
+
+- Popolare il file `hosts` con i corretti indirizzi IP
 - Eseguire i seguenti comandi
   ```
   ansible-galaxy collection install community.general
