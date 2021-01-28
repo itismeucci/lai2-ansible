@@ -27,12 +27,12 @@
   ```
   ansible-galaxy collection install community.general
   ansible-galaxy install pixelart.chrome
-  ansible-playbook -i hosts --verbose -K setup.yml
+  ansible-playbook -i hosts -l lai2 --verbose -K setup.yml
   ```
 - Preparare il template per la home di `informatica` e di `itismeucci` su un PC e distribuirli (vedi sotto).
 - Registrare la macchina virtuale su Virtualbox
   ```
-  ansible-playbook -i hosts --verbose -K registervm.yml
+  ansible-playbook -i hosts -l lai2 --verbose -K registervm.yml
   ```
 
 # Distribuire il template per la home di 'informatica'
@@ -40,7 +40,7 @@
 Configurare `informatica_template_master` in `hosts` ed eseguire
 
 ```
-ansible-playbook -i hosts --verbose -K informatica.yml
+ansible-playbook -i hosts -l lai2 --verbose -K informatica.yml
 ```
 
 `informatica_template_master` è l'host da dove prelevare la home di template per `informatica`
@@ -64,7 +64,7 @@ ansible-playbook -i hosts --verbose -K informatica.yml
 
   Configurare `itismeucci_template_master` in `hosts` ed eseguire
   ```
-  ansible-playbook -i hosts --verbose -K itismeucci.yml
+  ansible-playbook -i hosts -l lai2 --verbose -K itismeucci.yml
   ```
 
   `itismeucci_template_master` è l'host da dove prelevare la home di template per `itismeucci`
