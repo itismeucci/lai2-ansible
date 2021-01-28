@@ -3,5 +3,5 @@
   hosts: lai2
   become: yes
   roles:
-  # - itismeucci_tar
+  - itismeucci_tar
   - itismeucci_scp

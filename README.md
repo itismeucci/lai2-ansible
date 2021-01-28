@@ -1,4 +1,4 @@
-# Configure DHCP + static IP
+# Configurare DHCP + static IP
 ```
 # /etc/netplan/01-network-manager-all.yaml
 
@@ -22,17 +22,25 @@ ansible-galaxy install pixelart.chrome
 ansible-playbook -i hosts --verbose -K setup.yml
 ```
 
-# Distribute 'informatica' home template
+Preparare il template per la home di `informatica` e `itismeucci` su un PC e distribuirli (vedi sotto).
 
-Configure `informatica_template_master` in `hosts` and run
+Registrare la macchina virtuale su Virtualbox
+```
+ansible-playbook -i hosts --verbose -K registervm.yml
+```
+
+
+# Distribuire il template per la home di 'informatica'
+
+Configurare `informatica_template_master` in `hosts` ed eseguire
 
 ```
 ansible-playbook -i hosts --verbose -K informatica.yml
 ```
 
-`informatica_template_master` is the host from where to get `informatica` template
+`informatica_template_master` è l'host da dove prelevare la home di template per `informatica`
 
-# Distribute 'itismeucci' Win10.vdi
+# Distribuire il template per la home di 'itismeucci' compreso il VDI
 
 - accedere al PC con itismeucci
 - rimuovere fullscreen con CTRL+f
@@ -47,7 +55,14 @@ ansible-playbook -i hosts --verbose -K informatica.yml
 - spengere Windows
 - da Virtual Media Manager rendere il disco immutabile (verrà rilasciato)
 - riagganciare il disco alla virtual machine
-- distribuire il VDI
+- distribuire il VDI:
+
+  Configurare `itismeucci_template_master` in `hosts` ed eseguire
+  ```
+  ansible-playbook -i hosts --verbose -K itismeucci.yml
+  ```
+
+  `itismeucci_template_master` è l'host da dove prelevare la home di template per `itismeucci`
 
 # Utility
 ```

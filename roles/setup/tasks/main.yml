@@ -54,7 +54,7 @@
     - netbeans
     - arduino
 
-- name: Create user admin
+- name: Create admin user
   user:
     name: admin
     #mkpasswd --method=sha-512
@@ -67,7 +67,7 @@
     - vboxusers
     - dialout
 
-- name: Create user informatica
+- name: Create informatica user
   user:
     name: informatica
     password: '$6$Tz5vwsokc5qqwzSB$SawhY5tPTENsqS9JYu0GFTNvHGwJszsw5vAZ7TVf9jt5/zg8X2apN37ipBSOdQUdREgEEPxWBV0G8Zf7qiWV80'
@@ -78,7 +78,7 @@
     - vboxusers
     - dialout
 
-- name: Create user itismeucci
+- name: Create itismeucci user
   user:
     name: itismeucci
     password: '$6$5aBTfKvz$zzs1M/1hAwwZPIWBDCU7gPUPkPSwBpSQGJpkifoYr1aOycTBOGBmTm0R5/d0dc7SrqqOiVTj4Gngo/K/iLK.M/'
@@ -179,21 +179,21 @@
     group: root
     mode: '0644'
 
-- name: Setup git config user.name
+- name: Setup git config user.name for informatica
   become_user: informatica
   git_config:
     name: user.name
     scope: global
     value: "{{ hostname }}"
 
-- name: Setup git config user.email
+- name: Setup git config user.email for informatica
   become_user: informatica
   git_config:
     name: user.email
     scope: global
     value: "{{ hostname }}@itismeucci.com"
 
-- name: Setup git editor
+- name: Setup git editor for informatica
   become_user: informatica
   git_config:
     name: core.editor
@@ -243,8 +243,3 @@
     name: stop_firebird
     enabled: yes
     masked: no
-
-- name: register Win10.vbox on VirtualBox
-  become_user: itismeucci
-  command: VBoxManage registervm /home/itismeucci/VirtualBox\ VMs/Win10/Win10.vbox
-

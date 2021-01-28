@@ -1,0 +1,9 @@
+---
+- name: Register Win10 vm on VirtualBox
+  hosts: lai2
+  become: yes
+  tasks:
+  - name: register Win10.vbox on VirtualBox
+    become_user: itismeucci
+    command: VBoxManage registervm /home/itismeucci/VirtualBox\ VMs/Win10/Win10.vbox
+
