@@ -2,7 +2,7 @@
 
 # Setup
 
-- Configurare DHCP + static IP modificando il file `/etc/netplan/01-network-manager-all.yaml`
+- Configurare DHCP + static IP sul nuovo PC modificando il file `/etc/netplan/01-network-manager-all.yaml`
   ```
   # Let NetworkManager manage all devices on this system
   network:
