@@ -1,5 +1,4 @@
 
-
 # Setup
 ## Sul nuovo PC
 
@@ -27,7 +26,7 @@
   ```
   ansible-galaxy collection install community.general
   ansible-galaxy install pixelart.chrome
-  ansible-playbook -i hosts -l lai2 --verbose -K setup.yml
+  ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K setup.yml
   ```
 - Preparare il template per la home di `informatica` e di `itismeucci` su un PC e distribuirli (vedi sotto).
 - Registrare la macchina virtuale su Virtualbox

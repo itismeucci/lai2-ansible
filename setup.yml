@@ -3,5 +3,8 @@
   hosts: lai2
   become: yes
   roles:
+  - firebird-setup
+  - firebird-up
   - setup
+  - firebird-down
 

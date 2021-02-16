@@ -1,0 +1,13 @@
+- name: Add firebirdadmin.local to /etc/hosts
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: 172.31.253.1    firebirdadmin.local
+    create: yes
+
+- name: Copy meucci-mac.jar
+  copy:
+    src: meucci-mac.jar
+    dest: /home/admin
+    owner: admin
+    group: admin
+    mode: '0444'

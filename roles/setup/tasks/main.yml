@@ -39,6 +39,7 @@
     - docker.io
     - openjdk-11-jdk
     - maven
+    - ansible
     - virtualbox
     - virtualbox-ext-pack
     - silversearcher-ag
