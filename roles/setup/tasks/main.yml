@@ -9,6 +9,13 @@
     regexp: "{{ new_pc_default_hostname }}"
     replace: "{{ hostname }}"
 
+- name: Set timezone to Eurome/Rome
+  community.general.timezone:
+    name: Europe/Rome
+
+- name: enable ntp
+  shell: timedatectl set-ntp on
+
 - name: Update and upgrade apt packages
   apt:
     upgrade: yes
