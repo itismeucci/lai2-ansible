@@ -22,17 +22,23 @@
   sudo netplan apply
   ```
 
-- Loggarsi su Firebird e installare openssh-server `sudo apt-get update && sudo apt-get install -y openssh-server`
+- Loggarsi su Firebird e installare openssh-server 
+  ```
+  sudo apt-get update && sudo apt-get install -y openssh-server
+  ```
 
 ## Sul Control-node (dove è installato ansible)
 
-- Popolare il file `hosts` con i corretti indirizzi IP
-- Configurare `ansible_user` in `hosts` inserendo il valore `tb15`
-- Configurare `new_pc_default_hostname` in `hosts` inserendo l'hostname predefinito dei nuovi PC
 - Eseguire i seguenti comandi
   ```
   ansible-galaxy collection install community.general
   ansible-galaxy install pixelart.chrome
+  ```
+- Popolare il file `hosts` con i corretti indirizzi IP
+- Configurare `ansible_user` in `hosts` inserendo il valore `tb15`
+- Configurare `new_pc_default_hostname` in `hosts` inserendo l'hostname predefinito dei nuovi PC
+- Eseguire il comando
+  ```
   ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K setup_admin_account.yml --ask-pass
   ```
 
