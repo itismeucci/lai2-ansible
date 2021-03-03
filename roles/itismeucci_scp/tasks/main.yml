@@ -8,8 +8,6 @@
     group: admin
     mode: '0644'
 
-# - name: untar itismeucci.tar.gz on remote
-#   command: tar zxvf /home/templates/itismeucci.tar.gz -C /
 
 
 
