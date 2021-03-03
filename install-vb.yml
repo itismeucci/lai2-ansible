@@ -1,0 +1,27 @@
+---
+- name: Install virtualbox packages
+  hosts: lai2
+  become: yes
+  tasks:
+
+  - name: Install virtualbox packages
+    apt:
+      name: virtualbox
+
+  - name: Accept virtualbox-ext-pack seen license
+    debconf:
+      name: virtualbox-ext-pack
+      question: virtualbox-ext-pack/license
+      value: 'true'
+      vtype: seen
+
+  - name: Accept virtualbox-ext-pack select license
+    debconf:
+      name: virtualbox-ext-pack
+      question: virtualbox-ext-pack/license
+      value: 'true'
+      vtype: select
+
+  - name: Install virtualbox-ext-pack packages
+    apt:
+      name: virtualbox-ext-pack

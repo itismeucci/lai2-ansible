@@ -1,0 +1,26 @@
+---
+- name: Create admin user
+  user:
+    name: admin
+    #mkpasswd --method=sha-512
+    password: '$6$4AJSVzfl.IYd$oizWEQbzQ1Yy3j3HCOgUOvz3x8.4yaDZTXgIYNVUlDck4ESZ.QFHiPd86cREsMZ7bHOkTGY1yRVP7EiTSMiDd0'
+    shell: /bin/bash
+    state: present
+    groups:
+    - sudo
+
+- name: Copy .ssh files on admin
+  copy:
+    src: admin/.ssh
+    dest: /home/admin/
+    owner: admin
+    group: admin
+    mode: '0600'
+
+- name: Change chown for .ssh directory on admin
+  file:
+    path: /home/admin/.ssh
+    mode: '0700'
+    owner: admin
+    group: admin
+

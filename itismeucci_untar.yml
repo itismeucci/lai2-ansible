@@ -1,0 +1,6 @@
+---
+- name: create itismeucci home template
+  hosts: lai2
+  become: yes
+  roles:
+  - itismeucci_untar

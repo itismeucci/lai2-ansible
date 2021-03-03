@@ -17,21 +17,37 @@
         addresses:
           - 10.1.1.1/24
   ```
+- eseguire il comando
+  ```
+  sudo netplan apply
+  ```
+
+- Loggarsi su Firebird e installare openssh-server `sudo apt-get update && sudo apt-get install -y openssh-server`
 
 ## Sul Control-node (dove è installato ansible)
 
 - Popolare il file `hosts` con i corretti indirizzi IP
+- Configurare `ansible_user` in `hosts` inserendo il valore `tb15`
 - Configurare `new_pc_default_hostname` in `hosts` inserendo l'hostname predefinito dei nuovi PC
 - Eseguire i seguenti comandi
   ```
   ansible-galaxy collection install community.general
   ansible-galaxy install pixelart.chrome
-  ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K setup.yml
+  ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K setup_admin_account.yml --ask-pass
   ```
+
+- Configurare `ansible_user` in `hosts` inserendo il valore `admin`
+
+- Eseguire i seguenti comandi
+  ```
+  ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K setup.yml
+  ansible-playbook -i hosts.yml -l lai2 --verbose -K remove_tb_15_user.yaml
+  ```
+
 - Preparare il template per la home di `informatica` e di `itismeucci` su un PC e distribuirli (vedi sotto).
 - Registrare la macchina virtuale su Virtualbox
   ```
-  ansible-playbook -i hosts -l lai2 --verbose -K registervm.yml
+  ansible-playbook -i hosts.yml -l lai2 --verbose -K registervm.yml
   ```
 
 # Distribuire il template per la home di 'informatica'
@@ -39,7 +55,7 @@
 Configurare `informatica_template_master` in `hosts` ed eseguire
 
 ```
-ansible-playbook -i hosts -l lai2 --verbose -K informatica.yml
+ansible-playbook -i hosts.yml -l lai2 --verbose -K informatica.yml
 ```
 
 `informatica_template_master` è l'host da dove prelevare la home di template per `informatica`
@@ -63,13 +79,16 @@ ansible-playbook -i hosts -l lai2 --verbose -K informatica.yml
 
   Configurare `itismeucci_template_master` in `hosts` ed eseguire
   ```
-  ansible-playbook -i hosts -l lai2 --verbose -K itismeucci.yml
+  ansible-playbook -i hosts.yml -l lai2 --verbose -K itismeucci_tar.yml
+  ansible-playbook -i hosts.yml -l lai2 --verbose -K itismeucci_scp.yml -f 1
+  ansible-playbook -i hosts.yml -l lai2 --verbose -K itismeucci_untar.yml -f 30
   ```
 
   `itismeucci_template_master` è l'host da dove prelevare la home di template per `itismeucci`
 
 # Utility
 ```
-ansible lai2 -i ./hosts -m reboot -K -b
-ansible lai2 -i ./hosts -m community.general.shutdown -K -b
+ansible -i hosts.yml all -m ping
+ansible lai2 -i ./hosts.yml -m reboot -K -b -f 50
+ansible lai2 -i ./hosts.yml -m community.general.shutdown -K -b -f 50
 ```

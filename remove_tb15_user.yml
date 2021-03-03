@@ -1,0 +1,10 @@
+---
+- name: Remove tb15 user
+  hosts: lai2
+  become: yes
+  tasks:
+  - name: remove user
+    user:
+      name: tb15
+      state: absent
+

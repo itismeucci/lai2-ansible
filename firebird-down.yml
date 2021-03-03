@@ -1,0 +1,6 @@
+---
+- name: Firebird-down
+  hosts: lai2
+  become: yes
+  roles:
+  - firebird-down

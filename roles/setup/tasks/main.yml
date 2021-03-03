@@ -42,6 +42,7 @@
     packages:
     - vim
     - git
+    - curl
     - tmux
     - docker.io
     - openjdk-11-jdk
@@ -98,8 +99,14 @@
 - name: Disable automatic login
   replace:
     path: /etc/gdm3/custom.conf
-    regexp: "AutomaticLoginEnable=True"
-    replace: "AutomaticLoginEnable=False"
+    regexp: "AutomaticLoginEnable=true"
+    replace: "# AutomaticLoginEnable=true"
+
+- name: Disable automatic tb15 login
+  replace:
+    path: /etc/gdm3/custom.conf
+    regexp: "AutomaticLogin=tb15"
+    replace: "# AutomaticLogin=tb15"
 
 - name: Disable suspend on lid close
   replace:
@@ -127,21 +134,6 @@
     mode: '0700'
     owner: informatica
     group: informatica
-
-- name: Copy .ssh files on admin
-  copy:
-    src: admin/.ssh
-    dest: /home/admin/
-    owner: admin
-    group: admin
-    mode: '0600'
-
-- name: Change chown for .ssh directory on admin
-  file:
-    path: /home/admin/.ssh
-    mode: '0700'
-    owner: admin
-    group: admin
 
 - name: Disable ssh password
   notify: restart sshd
@@ -211,7 +203,7 @@
 - name: Copy HomeSync script
   copy:
     src: admin/HomeSync
-    dest: /home/admin
+    dest: /home/admin/
     owner: admin
     group: admin
     mode: '0755'
@@ -219,7 +211,7 @@
 - name: Copy FireBirdLogout script
   copy:
     src: admin/FireBirdLogout
-    dest: /home/admin
+    dest: /home/admin/
     owner: admin
     group: admin
     mode: '0755'
@@ -227,7 +219,7 @@
 - name: Copy home_sync.service
   copy:
     src: home_sync.service
-    dest: /etc/systemd/system
+    dest: /etc/systemd/system/
     owner: root
     group: root
     mode: '0644'
@@ -235,7 +227,7 @@
 - name: Copy stop_firebird.service
   copy:
     src: stop_firebird.service
-    dest: /etc/systemd/system
+    dest: /etc/systemd/system/
     owner: root
     group: root
     mode: '0644'
