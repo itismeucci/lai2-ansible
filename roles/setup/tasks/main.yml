@@ -243,3 +243,9 @@
     name: stop_firebird
     enabled: yes
     masked: no
+
+- name: remove user
+  user:
+    name: tb15
+    state: absent
+

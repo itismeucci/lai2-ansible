@@ -43,10 +43,9 @@
 
 - Configurare `ansible_user` in `hosts` inserendo il valore `admin`
 
-- Eseguire i seguenti comandi
+- Eseguire il seguente comando
   ```
   ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K setup.yml
-  ansible-playbook -i hosts.yml -l lai2 --verbose -K remove_tb15_user.yml
   ```
 
 - Preparare il template per la home di `informatica` e di `itismeucci` su un PC e distribuirli (vedi sotto).
@@ -54,6 +53,8 @@
   ```
   ansible-playbook -i hosts.yml -l lai2 --verbose -K registervm.yml
   ```
+
+
 
 # Distribuire il template per la home di 'informatica'
 
@@ -96,4 +97,8 @@ ansible-playbook -i hosts.yml -l lai2 --verbose -K informatica.yml
 ansible -i hosts.yml all -m ping
 ansible lai2 -i ./hosts.yml -m reboot -K -b -f 50
 ansible lai2 -i ./hosts.yml -m community.general.shutdown -K -b -f 50
+ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K firebird-up.yml
+ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K firebird-down.yml
+ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K install_software.yml
+
 ```

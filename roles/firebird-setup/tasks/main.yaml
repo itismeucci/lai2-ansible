@@ -5,16 +5,6 @@
     packages:
     - openjdk-11-jdk
 
-- name: Create admin user
-  user:
-    name: admin
-    #mkpasswd --method=sha-512
-    password: '$6$4AJSVzfl.IYd$oizWEQbzQ1Yy3j3HCOgUOvz3x8.4yaDZTXgIYNVUlDck4ESZ.QFHiPd86cREsMZ7bHOkTGY1yRVP7EiTSMiDd0'
-    shell: /bin/bash
-    state: present
-    groups:
-    - sudo
-
 - name: Add firebirdadmin.local to /etc/hosts
   ansible.builtin.lineinfile:
     path: /etc/hosts
