@@ -1,0 +1,8 @@
+---
+- name: Install software
+  hosts: lai2
+  become: yes
+  roles:
+  - firebird-up
+  - install_software
+  - firebird-down
