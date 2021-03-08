@@ -58,7 +58,6 @@
     classic: yes
   vars:
     packages:
-    - brackets
     - eclipse
     - netbeans
     - arduino
