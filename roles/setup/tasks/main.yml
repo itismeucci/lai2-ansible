@@ -9,31 +9,39 @@
     regexp: "{{ new_pc_default_hostname }}"
     replace: "{{ hostname }}"
 
-- name: Set timezone to Eurome/Rome
-  community.general.timezone:
-    name: Europe/Rome
+# - name: Set timezone to Eurome/Rome
+#   community.general.timezone:
+#     name: Europe/Rome
 
-- name: enable ntp
-  shell: timedatectl set-ntp on
+# - name: enable ntp
+#   shell: timedatectl set-ntp on
 
-- name: Update and upgrade apt packages
-  apt:
-    upgrade: yes
-    update_cache: yes
+# - name: Update and upgrade apt packages
+#   apt:
+#     upgrade: yes
+#     update_cache: yes
 
-- name: Accept virtualbox-ext-pack seen license
-  debconf:
-    name: virtualbox-ext-pack
-    question: virtualbox-ext-pack/license
-    value: 'true'
-    vtype: seen
+# - name: Accept virtualbox-ext-pack seen license
+#   debconf:
+#     name: virtualbox-ext-pack
+#     question: virtualbox-ext-pack/license
+#     value: 'true'
+#     vtype: seen
 
-- name: Accept virtualbox-ext-pack select license
-  debconf:
-    name: virtualbox-ext-pack
-    question: virtualbox-ext-pack/license
-    value: 'true'
-    vtype: select
+# - name: Accept virtualbox-ext-pack select license
+#   debconf:
+#     name: virtualbox-ext-pack
+#     question: virtualbox-ext-pack/license
+#     value: 'true'
+#     vtype: select
+
+- name: Import Microsoft GPG
+  shell: wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+
+- name: Add Microsoft repository into sources list
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    state: present
 
 - name: Install apt packages
   apt:
@@ -45,35 +53,38 @@
     - curl
     - tmux
     - docker.io
-    - openjdk-11-jdk
+    - default-jdk
     - maven
     - ansible
-    - virtualbox
-    - virtualbox-ext-pack
+    # - virtualbox
+    # - virtualbox-ext-pack
     - silversearcher-ag
+    - software-properties-common
+    - apt-transport-https
+    - code
 
-- name: Install snap packages
-  community.general.snap:
-    name: "{{ packages }}"
-    classic: yes
-  vars:
-    packages:
-    - eclipse
-    - netbeans
-    - arduino
+# - name: Install snap packages
+#   community.general.snap:
+#     name: "{{ packages }}"
+#     classic: yes
+#   vars:
+#     packages:
+#     - eclipse
+#     - netbeans
+#     - arduino
 
-- name: Create admin user
-  user:
-    name: admin
-    #mkpasswd --method=sha-512
-    password: '$6$4AJSVzfl.IYd$oizWEQbzQ1Yy3j3HCOgUOvz3x8.4yaDZTXgIYNVUlDck4ESZ.QFHiPd86cREsMZ7bHOkTGY1yRVP7EiTSMiDd0'
-    shell: /bin/bash
-    state: present
-    groups:
-    - docker
-    - sudo
-    - vboxusers
-    - dialout
+#- name: Create admin user
+#  user:
+#    name: admin
+#    #mkpasswd --method=sha-512
+#    password: '$6$4AJSVzfl.IYd$oizWEQbzQ1Yy3j3HCOgUOvz3x8.4yaDZTXgIYNVUlDck4ESZ.QFHiPd86cREsMZ7bHOkTGY1yRVP7EiTSMiDd0'
+#    shell: /bin/bash
+#    state: present
+#    groups:
+#    - docker
+#    - sudo
+#    - vboxusers
+#    - dialout
 
 - name: Create informatica user
   user:
@@ -83,35 +94,35 @@
     state: present
     groups:
     - docker
-    - vboxusers
-    - dialout
+    # - vboxusers
+    # - dialout
 
-- name: Create itismeucci user
-  user:
-    name: itismeucci
-    password: '$6$5aBTfKvz$zzs1M/1hAwwZPIWBDCU7gPUPkPSwBpSQGJpkifoYr1aOycTBOGBmTm0R5/d0dc7SrqqOiVTj4Gngo/K/iLK.M/'
-    shell: /bin/bash
-    state: present
-    groups:
-    - vboxusers
+# - name: Create itismeucci user
+#   user:
+#     name: itismeucci
+#     password: '$6$5aBTfKvz$zzs1M/1hAwwZPIWBDCU7gPUPkPSwBpSQGJpkifoYr1aOycTBOGBmTm0R5/d0dc7SrqqOiVTj4Gngo/K/iLK.M/'
+#     shell: /bin/bash
+#     state: present
+#     groups:
+#     - vboxusers
 
-- name: Disable automatic login
-  replace:
-    path: /etc/gdm3/custom.conf
-    regexp: "AutomaticLoginEnable=true"
-    replace: "# AutomaticLoginEnable=true"
+# - name: Disable automatic login
+#   replace:
+#     path: /etc/gdm3/custom.conf
+#     regexp: "AutomaticLoginEnable=true"
+#     replace: "# AutomaticLoginEnable=true"
 
-- name: Disable automatic tb15 login
-  replace:
-    path: /etc/gdm3/custom.conf
-    regexp: "AutomaticLogin=tb15"
-    replace: "# AutomaticLogin=tb15"
+# - name: Disable automatic tb15 login
+#   replace:
+#     path: /etc/gdm3/custom.conf
+#     regexp: "AutomaticLogin=tb15"
+#     replace: "# AutomaticLogin=tb15"
 
-- name: Disable suspend on lid close
-  replace:
-    path: /etc/systemd/logind.conf
-    regexp: "#HandleLidSwitch=suspend"
-    replace: "HandleLidSwitch=ignore"
+# - name: Disable suspend on lid close
+#   replace:
+#     path: /etc/systemd/logind.conf
+#     regexp: "#HandleLidSwitch=suspend"
+#     replace: "HandleLidSwitch=ignore"
 
 - name: Disable apt auto-upgrades
   replace:
@@ -141,42 +152,42 @@
     regexp: "#PasswordAuthentication yes"
     replace: "PasswordAuthentication no"
 
-- name: Copy win10.sh script
-  copy:
-    src: itismeucci/win10.sh
-    dest: /home/itismeucci/
-    owner: itismeucci
-    group: itismeucci
-    mode: '0755'
+# - name: Copy win10.sh script
+#   copy:
+#     src: itismeucci/win10.sh
+#     dest: /home/itismeucci/
+#     owner: itismeucci
+#     group: itismeucci
+#     mode: '0755'
 
-- name: Copy Win10 autostart
-  copy:
-    src: itismeucci/VBoxManage.desktop
-    dest: /home/itismeucci/.config/autostart/
-    owner: itismeucci
-    group: itismeucci
-    mode: '0700'
+# - name: Copy Win10 autostart
+#   copy:
+#     src: itismeucci/VBoxManage.desktop
+#     dest: /home/itismeucci/.config/autostart/
+#     owner: itismeucci
+#     group: itismeucci
+#     mode: '0700'
 
 - name: Create /home/templates directory
   file:
     path: /home/templates
     state: directory
     mode: '0755'
-    owner: admin
-    group: admin
+    owner: lai2
+    group: lai2
 
-- name: Install Chrome
-  include_role:
-    name: pixelart.chrome
+# - name: Install Chrome
+#   include_role:
+#     name: pixelart.chrome
 
-- name: Allow users to change WiFi
-  notify: restart network-manager
-  copy:
-    src: 52-wifi-management.pkla
-    dest: /etc/polkit-1/localauthority/50-local.d/
-    owner: root
-    group: root
-    mode: '0644'
+# - name: Allow users to change WiFi
+#   notify: restart network-manager
+#   copy:
+#     src: 52-wifi-management.pkla
+#     dest: /etc/polkit-1/localauthority/50-local.d/
+#     owner: root
+#     group: root
+#     mode: '0644'
 
 - name: Setup git config user.name for informatica
   become_user: informatica
@@ -202,17 +213,17 @@
 - name: Copy HomeSync script
   copy:
     src: admin/HomeSync
-    dest: /home/admin/
-    owner: admin
-    group: admin
+    dest: /home/lai2/
+    owner: lai2
+    group: lai2
     mode: '0755'
 
 - name: Copy FireBirdLogout script
   copy:
     src: admin/FireBirdLogout
-    dest: /home/admin/
-    owner: admin
-    group: admin
+    dest: /home/lai2/
+    owner: lai2
+    group: lai2
     mode: '0755'
 
 - name: Copy home_sync.service
@@ -243,8 +254,13 @@
     enabled: yes
     masked: no
 
-- name: remove user
-  user:
-    name: tb15
-    state: absent
+# - name: remove user
+#   user:
+#     name: tb15
+#     state: absent
+
+
+
+
+
 
