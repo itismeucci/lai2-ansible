@@ -6,7 +6,7 @@ Before=shutdown.target reboot.target halt.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/home/admin/FireBirdLogout
+ExecStart=/home/lai2/FireBirdLogout
 
 [Install]
 WantedBy=halt.target reboot.target shutdown.target

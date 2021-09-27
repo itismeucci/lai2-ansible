@@ -1,4 +1,4 @@
 #! /bin/bash
 
 curl http://firebird.flashinlabs.com/?dologout
-java -jar /home/admin/meucci-mac.jar -u=admin -p=RUjYR2rrCAcTq5FL -m=rem
+java -jar /home/lai2/meucci-mac.jar -u=admin -p=RUjYR2rrCAcTq5FL -m=rem

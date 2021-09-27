@@ -6,7 +6,7 @@ Before=shutdown.target reboot.target halt.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/home/admin/HomeSync
+ExecStart=/home/lai2/HomeSync
 
 [Install]
 WantedBy=halt.target reboot.target shutdown.target

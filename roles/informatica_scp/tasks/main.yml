@@ -3,6 +3,6 @@
   copy:
     src: /tmp/informatica.tar.gz
     dest: /home/templates/
-    owner: admin
-    group: admin
+    owner: lai2
+    group: lai2
     mode: '0644'
