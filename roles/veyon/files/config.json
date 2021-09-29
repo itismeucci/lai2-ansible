@@ -1,0 +1,276 @@
+{
+    "AccessControl": {
+        "UserGroupsBackend": "2917cdeb-ac13-4099-8715-20368254a367"
+    },
+    "Authentication": {
+        "Method": 1
+    },
+    "BuiltinDirectory": {
+        "NetworkObjects": {
+            "JsonStoreArray": [
+                {
+                    "Name": "Lai2",
+                    "Type": 2,
+                    "Uid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}"
+                },
+                {
+                    "HostAddress": "10.22.9.1",
+                    "Name": "1",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{267790cb-9961-4bbe-9dd5-33b1c09372fa}"
+                },
+                {
+                    "HostAddress": "10.22.9.2",
+                    "Name": "2",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{a4284333-2b86-4b0a-820e-4656d4ac6ab3}"
+                },
+                {
+                    "HostAddress": "10.22.9.3",
+                    "Name": "3",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{5d248714-addc-4380-ae51-d2a0a5864fd4}"
+                },
+                {
+                    "HostAddress": "10.22.9.4",
+                    "Name": "4",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{63d23890-2f48-4885-ab75-b83e97cacdc1}"
+                },
+                {
+                    "HostAddress": "10.22.9.5",
+                    "Name": "5",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{1ce850b7-5286-479c-853c-06f9f9765f96}"
+                },
+                {
+                    "HostAddress": "10.22.9.6",
+                    "Name": "6",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{027ce206-92bb-4afb-81c0-1eeb8749b05b}"
+                },
+                {
+                    "HostAddress": "10.22.9.7",
+                    "Name": "7",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{8583585d-9736-4fe6-ac7a-765bda4fd1e2}"
+                },
+                {
+                    "HostAddress": "10.22.9.8",
+                    "Name": "8",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{8388f3c0-b4d3-4981-96c2-edff225774b4}"
+                },
+                {
+                    "HostAddress": "10.22.9.9",
+                    "Name": "9",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{0335896a-d99d-4bbf-b543-cb5d2e595346}"
+                },
+                {
+                    "HostAddress": "10.22.9.10",
+                    "Name": "10",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{b4277946-3d6c-4416-96dc-e0f83e66f376}"
+                },
+                {
+                    "HostAddress": "10.22.9.11",
+                    "Name": "11",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{f97a6274-6362-48f1-8beb-d55e5eb63b67}"
+                },
+                {
+                    "HostAddress": "10.22.9.12",
+                    "Name": "12",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{a31b1040-62b9-4a54-961d-4576b2f3dffa}"
+                },
+                {
+                    "HostAddress": "10.22.9.13",
+                    "Name": "13",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{8109937a-dbda-4b11-b9e6-5fbfce41ca8b}"
+                },
+                {
+                    "HostAddress": "10.22.9.14",
+                    "Name": "14",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{98fe67a9-e44e-4e1a-a031-d4c078df5489}"
+                },
+                {
+                    "HostAddress": "10.22.9.15",
+                    "Name": "15",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{fae8036c-eff8-4cbd-ae61-9d7711f88aac}"
+                },
+                {
+                    "HostAddress": "10.22.9.16",
+                    "Name": "16",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{36c5e9a1-2ec8-46f0-888f-c6e3d1075b30}"
+                },
+                {
+                    "HostAddress": "10.22.9.17",
+                    "Name": "17",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{774283a3-0b66-4932-8599-def15afefa8c}"
+                },
+                {
+                    "HostAddress": "10.22.9.18",
+                    "Name": "18",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{bf1ea3fa-5b30-4ec0-a513-61702ca82735}"
+                },
+                {
+                    "HostAddress": "10.22.9.19",
+                    "Name": "19",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{4021c9a5-2bb6-41d2-ad61-01e84dd6a987}"
+                },
+                {
+                    "HostAddress": "10.22.9.20",
+                    "Name": "20",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{d7a9930f-8ed3-455d-bfc0-cfc63dba3eb6}"
+                },
+                {
+                    "HostAddress": "10.22.9.21",
+                    "Name": "21",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{ff7f6f2a-09bf-4c07-aca5-0bd84ca6e70b}"
+                },
+                {
+                    "HostAddress": "10.22.9.22",
+                    "Name": "22",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{f627d7f4-5b0c-420b-86fe-f4ebaf159497}"
+                },
+                {
+                    "HostAddress": "10.22.9.23",
+                    "Name": "23",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{ba60497a-10ef-4218-b4ef-9c4c60f3237f}"
+                },
+                {
+                    "HostAddress": "10.22.9.24",
+                    "Name": "24",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{5697b459-8bfb-4be4-abf6-5f969672f4fb}"
+                },
+                {
+                    "HostAddress": "10.22.9.25",
+                    "Name": "25",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{e442bcef-c2b0-4ed8-8b93-5d68b8e86dd2}"
+                },
+                {
+                    "HostAddress": "10.22.9.26",
+                    "Name": "26",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{215991ed-b1a4-4a76-8db7-2342d2e947e2}"
+                },
+                {
+                    "HostAddress": "10.22.9.27",
+                    "Name": "27",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{a52c9ff2-821b-4958-a6d4-deacaa7e06e2}"
+                },
+                {
+                    "HostAddress": "10.22.9.28",
+                    "Name": "28",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{31f25c03-3363-4926-b01c-03b5b6179fba}"
+                },
+                {
+                    "HostAddress": "10.22.9.29",
+                    "Name": "29",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{ee4bb8ad-4ee0-423a-85cd-712d1ed21c13}"
+                },
+                {
+                    "HostAddress": "10.22.9.30",
+                    "Name": "30",
+                    "ParentUid": "{05c3f3ec-7ac7-427e-a63c-1cc3e01a1341}",
+                    "Type": 3,
+                    "Uid": "{7a698a7b-9e59-47dd-a766-782e2bcb6cad}"
+                }
+            ]
+        }
+    },
+    "Core": {
+        "ApplicationVersion": 2,
+        "InstallationID": "fed8afee-aac1-476a-a3b1-115763aa09d9",
+        "PluginVersions": {
+            "JsonStoreObject": {
+                "{14bacaaa-ebe5-449c-b881-5b382f952571}": "1.1",
+                "{1b08265b-348f-4978-acaa-45d4f6b90bd9}": "1.1",
+                "{2917cdeb-ac13-4099-8715-20368254a367}": "1.1",
+                "{2ad98ccb-e9a5-43ef-8c4c-876ac5efbcb1}": "1.1",
+                "{387a0c43-1355-4ff6-9e1f-d098e9ce5127}": "1.1",
+                "{39d7a07f-94db-4912-aa1a-c4df8aee3879}": "1.1",
+                "{4122e8ca-b617-4e36-b851-8e050ed2d82e}": "1.2",
+                "{4790bad8-4c56-40d5-8361-099a68f0c24b}": "1.1",
+                "{63928a8a-4c51-4bfd-888e-9e13c6f3907a}": "1.1",
+                "{67dfc1c1-8f37-4539-a298-16e74e34fd8b}": "1.1",
+                "{6f0a491e-c1c6-4338-8244-f823b0bf8670}": "1.2",
+                "{80580500-2e59-4297-9e35-e53959b028cd}": "1.2",
+                "{8ae6668b-9c12-4b29-9bfc-ff89f6604164}": "1.1",
+                "{a54ee018-42bf-4569-90c7-0d8470125ccf}": "2.0",
+                "{d4bb9c42-9eef-4ecb-8dd5-dfd84b355481}": "1.0",
+                "{e11bee03-b99c-465c-bf90-7e5339b83f6b}": "1.0",
+                "{ee322521-f4fb-482d-b082-82a79003afa7}": "1.1"
+            }
+        }
+    },
+    "LDAP": {
+        "ComputerLocationAttribute": "",
+        "ComputerLocationsByAttribute": false,
+        "ComputerLocationsByContainer": false,
+        "LocationNameAttribute": "",
+        "UserLoginNameAttribute": ""
+    },
+    "Master": {
+        "AllowAddingHiddenLocations": false,
+        "AutoAdjustMonitoringIconSize": true,
+        "AutoOpenComputerSelectPanel": false,
+        "AutoSelectCurrentLocation": false,
+        "ConfirmUnsafeActions": false,
+        "HideEmptyLocations": false,
+        "ShowCurrentLocationOnly": false
+    },
+    "NetworkObjectDirectory": {
+        "Plugin": "14bacaaa-ebe5-449c-b881-5b382f952571"
+    },
+    "VncServer": {
+        "Plugin": "39d7a07f-94db-4912-aa1a-c4df8aee3879"
+    }
+}

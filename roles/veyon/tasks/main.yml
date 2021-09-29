@@ -1,0 +1,24 @@
+---
+# - name: Copy veyon deb package
+#   copy:
+#     src: veyon_4.6.0-0-ubuntu-focal_amd64.deb
+#     dest: /home/lai2/Downloads/
+
+# - name: Install veyon deb package
+#   apt: deb="/home/lai2/Downloads/veyon_4.6.0-0-ubuntu-focal_amd64.deb"
+#
+- name: Copy veyon public key
+  copy:
+    src: key
+    dest: /etc/veyon/keys/public/veyon/
+    owner: root
+    group: root
+    mode: '0440'
+
+- name: Copy veyon config
+  copy:
+    src: config.json
+    dest: /home/lai2/
+
+- name: Veyon config
+  shell:  sudo veyon-cli config import /home/lai2/config.json

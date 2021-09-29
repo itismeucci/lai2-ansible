@@ -1,0 +1,6 @@
+---
+- name: Setup and install veyon
+  hosts: lai2
+  become: yes
+  roles:
+  - veyon

@@ -1,9 +1,9 @@
-- name: Install java apt packages
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - openjdk-11-jdk
+# - name: Install java apt packages
+  # apt:
+  #   name: "{{ packages }}"
+  # vars:
+  #   packages:
+  #   - openjdk-11-jdk
 
 - name: Add firebirdadmin.local to /etc/hosts
   ansible.builtin.lineinfile:
@@ -14,7 +14,7 @@
 - name: Copy meucci-mac.jar
   copy:
     src: meucci-mac.jar
-    dest: /home/admin/
-    owner: admin
-    group: admin
+    dest: /home/lai2/
+    owner: lai2
+    group: lai2
     mode: '0444'

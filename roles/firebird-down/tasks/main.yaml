@@ -1,2 +1,2 @@
 - name: disable MAC address to firebird
-  shell: java -jar /home/admin/meucci-mac.jar -u=admin -p={{ meuccimac_password}} -m=rem
+  shell: java -jar /home/lai2/meucci-mac.jar -u=admin -p={{ meuccimac_password}} -m=rem
