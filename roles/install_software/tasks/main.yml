@@ -10,20 +10,12 @@
   vars:
     packages:
     - gimp
+    - unrar
 
-# - name: Install snap packages
-#   community.general.snap:
-#     name: "{{ packages }}"
-#     classic: yes
-#   vars:
-#     packages:
-#     - brackets
+# - name: Copy bracket deb package
+#   copy:
+#     src: Brackets-fixed.deb
+#     dest: /home/admin/Downloads/
 
-
-- name: Copy bracket deb package
-  copy:
-    src: Brackets-fixed.deb
-    dest: /home/admin/Downloads/
-
-- name: Install bracket deb package
-  apt: deb="/home/admin/Downloads/Brackets-fixed.deb"
+# - name: Install bracket deb package
+#   apt: deb="/home/admin/Downloads/Brackets-fixed.deb"

@@ -1,0 +1,8 @@
+---
+- name: restart veyon service
+  hosts: lai2
+  become: yes
+  tasks:
+  - name: restart veyon service
+    command: veyon-cli service restart
+

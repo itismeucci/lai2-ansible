@@ -224,7 +224,7 @@
     dest: /home/lai2/
     owner: lai2
     group: lai2
-    mode: '0755'
+    mode: '0311'
 
 - name: Copy home_sync.service
   copy:
