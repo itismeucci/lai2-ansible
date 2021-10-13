@@ -1,0 +1,9 @@
+---
+- name: one_shot_command
+  hosts: lai2
+  become: yes
+  tasks:
+  - name: one shot command
+    command: chmod o-r /home/lai2/lai2-ansible/roles/setup/files/admin/FireBirdLogout
+
+
