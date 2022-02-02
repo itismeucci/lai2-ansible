@@ -1,0 +1,11 @@
+[Unit]
+After=network.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 600
+ExecStart=/home/lai2/restart_veyon.sh
+
+[Install]
+WantedBy=default.target
+

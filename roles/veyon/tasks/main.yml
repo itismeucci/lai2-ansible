@@ -1,27 +1,50 @@
 ---
-- name: Copy veyon deb package
-  copy:
-    src: veyon_4.6.0-0-ubuntu-focal_amd64.deb
-    dest: /home/lai2/Downloads/
+# - name: Copy veyon deb package
+#   copy:
+#     src: veyon_4.6.0-0-ubuntu-focal_amd64.deb
+#     dest: /home/lai2/Downloads/
 
-- name: Install veyon deb package
-  apt: deb="/home/lai2/Downloads/veyon_4.6.0-0-ubuntu-focal_amd64.deb"
+# - name: Install veyon deb package
+#   apt: deb="/home/lai2/Downloads/veyon_4.6.0-0-ubuntu-focal_amd64.deb"
 
-- name: Copy veyon public key
+# - name: Copy veyon public key
+#   copy:
+#     src: key
+#     dest: /etc/veyon/keys/public/veyon/
+#     owner: root
+#     group: root
+#     mode: '0440'
+
+# - name: Copy veyon config
+#   copy:
+#     src: config.json
+#     dest: /home/lai2/
+
+# - name: Veyon config
+#   shell:  sudo veyon-cli config import /home/lai2/config.json
+
+# - name: Veyon service restart
+#   shell:  sudo veyon-cli service restart
+
+# - name: Copy restart_veyon script
+#   copy:
+#     src: restart_veyon.sh
+#     dest: /home/lai2/
+#     owner: lai2
+#     group: lai2
+#     mode: '0755'
+
+- name: Copy restart_veyon.service
   copy:
-    src: key
-    dest: /etc/veyon/keys/public/veyon/
+    src: restart_veyon.service
+    dest: /etc/systemd/system/
     owner: root
     group: root
-    mode: '0440'
+    mode: '0644'
 
-- name: Copy veyon config
-  copy:
-    src: config.json
-    dest: /home/lai2/
+- name: Enable restart_veyon service
+  systemd:
+    name: restart_veyon
+    enabled: yes
+    masked: no
 
-- name: Veyon config
-  shell:  sudo veyon-cli config import /home/lai2/config.json
-
-- name: Veyon service restart
-  shell:  sudo veyon-cli service restart

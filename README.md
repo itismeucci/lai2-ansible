@@ -102,5 +102,6 @@ ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K firebird-down.yml
 ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K install_software.yml
 ansible-playbook -i hosts.yml -l lai2 -K install_software.yml
 ansible-playbook -i hosts.yml -l lai2 -K veyon_restart.yml
+ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K upgrade.yml
 
 ```

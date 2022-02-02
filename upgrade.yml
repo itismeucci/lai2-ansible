@@ -1,0 +1,8 @@
+---
+- name: Upgrade
+  hosts: lai2
+  become: yes
+  roles:
+  - firebird-up
+  - upgrade
+  - firebird-down
