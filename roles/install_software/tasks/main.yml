@@ -4,13 +4,13 @@
 #     upgrade: yes
 #     update_cache: yes
 
-- name: Install apt packages
-  apt:
-    name: "{{ packages }}"
-  vars:
-    packages:
-    - gimp
-    - unrar
+# - name: Install apt packages
+#   apt:
+#     name: "{{ packages }}"
+#   vars:
+#     packages:
+#     - gimp
+#     - unrar
 
 # - name: Copy bracket deb package
 #   copy:
@@ -19,3 +19,30 @@
 
 # - name: Install bracket deb package
 #   apt: deb="/home/admin/Downloads/Brackets-fixed.deb"
+
+
+- name: Install the gpg key for nodejs LTS
+  apt_key:
+    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    state: present
+
+- name: Install the nodejs LTS repos
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/node_16.x focal main"
+    state: present
+    update_cache: yes
+
+- name: Install the nodejs
+  apt:
+    name: nodejs
+    state: present
+
+- name: Install "@angular/cli" node.js package globally.
+  community.general.npm:
+    name: "@angular/cli"
+    global: yes
+
+- name: Install "typescript" node.js package globally.
+  community.general.npm:
+    name: typescript
+    global: yes

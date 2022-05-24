@@ -4,6 +4,7 @@
   become: yes
   tasks:
   - name: one shot command
-    command: chmod o-r /home/lai2/lai2-ansible/roles/setup/files/admin/FireBirdLogout
+    # command: chmod o-r /home/lai2/lai2-ansible/roles/setup/files/admin/FireBirdLogout
+    command: ls -la /home/informatica/Downloads
 
 
