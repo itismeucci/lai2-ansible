@@ -1,2 +1,2 @@
 - name: enable MAC address to firebird
-  shell: java -jar /home/lai2/meucci-mac.jar -u=admin -p={{ meuccimac_password}} -m=add
+  shell: java -jar /home/lai2/meucci-mac-cp.jar -u=mario.scialpi -p={{ new_meuccimac_password}} -m=add

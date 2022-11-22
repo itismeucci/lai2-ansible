@@ -5,15 +5,23 @@
   #   packages:
   #   - openjdk-11-jdk
 
-- name: Add firebirdadmin.local to /etc/hosts
-  ansible.builtin.lineinfile:
-    path: /etc/hosts
-    line: 172.31.253.1    firebirdadmin.local
-    create: yes
+# - name: Add firebirdadmin.local to /etc/hosts
+#   ansible.builtin.lineinfile:
+#     path: /etc/hosts
+#     line: 172.31.253.1    firebirdadmin.local
+#     create: yes
 
-- name: Copy meucci-mac.jar
+# - name: Copy meucci-mac.jar
+#   copy:
+#     src: meucci-mac.jar
+#     dest: /home/lai2/
+#     owner: lai2
+#     group: lai2
+#     mode: '0444'
+
+- name: Copy meucci-mac-cp.jar
   copy:
-    src: meucci-mac.jar
+    src: meucci-mac-cp.jar
     dest: /home/lai2/
     owner: lai2
     group: lai2
