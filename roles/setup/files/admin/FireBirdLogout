@@ -1,4 +1,8 @@
 #! /bin/bash
 
-curl http://firebird.flashinlabs.com/?dologout
-java -jar /home/lai2/meucci-mac.jar -u=admin -p=RUjYR2rrCAcTq5FL -m=rem
+logout_id=`curl -s https://login.itismeucci.edu.it:8003/index.php?zone=retiaule | grep logout_id | sed -n '/logout_id/s/.*name="logout_id"\s\+value="\([^"]\+\).*/\1/p'`
+echo $logout_id
+curl -i https://login.itismeucci.edu.it:8003/index.php?zone=retiaule -d "logout=Disconnect&zone=retiaule&logout_id=$logout_id&redirurl=%24PORTAL_REDIRURL%24"
+curl -iL https://mail.google.com/mail/u/0/?logout&hl=en
+
+

@@ -12,14 +12,21 @@
 #     - gimp
 #     - unrar
 
-# - name: Copy bracket deb package
-#   copy:
-#     src: Brackets-fixed.deb
-#     dest: /home/admin/Downloads/
+- name: Copy bracket deb package
+  copy:
+    src: Brackets-fixed.deb
+    dest: /home/lai2/Downloads/
 
-# - name: Install bracket deb package
-#   apt: deb="/home/admin/Downloads/Brackets-fixed.deb"
+- name: Install bracket deb package
+  apt: deb="/home/lai2/Downloads/Brackets-fixed.deb"
 
+- name: Copy SceneBuilder deb package
+  copy:
+    src: SceneBuilder-19.0.0.deb
+    dest: /home/lai2/Downloads/
+
+- name: Install bracket deb package
+  apt: deb="/home/lai2/Downloads/Brackets-fixed.deb"
 
 - name: Install the gpg key for nodejs LTS
   apt_key:
