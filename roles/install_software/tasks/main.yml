@@ -1,55 +1,64 @@
 ---
-# - name: Update and upgrade apt packages
-#   apt:
-#     upgrade: yes
-#     update_cache: yes
-
-# - name: Install apt packages
-#   apt:
-#     name: "{{ packages }}"
-#   vars:
-#     packages:
-#     - gimp
-#     - unrar
-
-- name: Copy bracket deb package
-  copy:
-    src: Brackets-fixed.deb
-    dest: /home/lai2/Downloads/
-
-- name: Install bracket deb package
-  apt: deb="/home/lai2/Downloads/Brackets-fixed.deb"
-
-- name: Copy SceneBuilder deb package
-  copy:
-    src: SceneBuilder-19.0.0.deb
-    dest: /home/lai2/Downloads/
-
-- name: Install bracket deb package
-  apt: deb="/home/lai2/Downloads/Brackets-fixed.deb"
-
-- name: Install the gpg key for nodejs LTS
-  apt_key:
-    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
-    state: present
-
-- name: Install the nodejs LTS repos
-  apt_repository:
-    repo: "deb https://deb.nodesource.com/node_16.x focal main"
-    state: present
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: no
     update_cache: yes
 
-- name: Install the nodejs
+- name: Install apt packages
   apt:
-    name: nodejs
-    state: present
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - docker.io
+    - docker-compose
+    - gimp
+    - unrar
+    - curl
+    - tmux
+    - maven
+    - ansible
+    - silversearcher-ag
+    - default-jdk
+    - g++
 
-- name: Install "@angular/cli" node.js package globally.
-  community.general.npm:
-    name: "@angular/cli"
-    global: yes
+# - name: Copy bracket deb package
+#   copy:
+#     src: Brackets-fixed.deb
+#     dest: /home/lai2/Downloads/
 
-- name: Install "typescript" node.js package globally.
-  community.general.npm:
-    name: typescript
-    global: yes
+# - name: Install bracket deb package
+#   apt: deb="/home/lai2/Downloads/Brackets-fixed.deb"
+
+# - name: Copy SceneBuilder deb package
+#   copy:
+#     src: SceneBuilder-19.0.0.deb
+#     dest: /home/lai2/Downloads/
+
+# - name: Install SceneBuilder
+#   apt: deb="/home/lai2/Downloads/SceneBuilder-19.0.0.deb"
+
+# - name: Install the gpg key for nodejs LTS
+#   apt_key:
+#     url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+#     state: present
+
+# - name: Install the nodejs LTS repos
+#   apt_repository:
+#     repo: "deb https://deb.nodesource.com/node_16.x focal main"
+#     state: present
+#     update_cache: yes
+
+# - name: Install the nodejs
+#   apt:
+#     name: nodejs
+#     state: present
+
+# - name: Install "@angular/cli" node.js package globally.
+#   community.general.npm:
+#     name: "@angular/cli"
+#     global: yes
+
+# - name: Install "typescript" node.js package globally.
+#   community.general.npm:
+#     name: typescript
+#     global: yes

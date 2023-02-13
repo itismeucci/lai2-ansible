@@ -100,7 +100,7 @@ ansible lai2 -i ./hosts.yml -m community.general.shutdown -K -b -f 50
 ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K firebird-up.yml
 ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K firebird-down.yml
 ansible-playbook -i hosts.yml -l lai2 --ask-vault-pass -K install_software.yml
-ansible-playbook -i hosts.yml -l lai2 -K install_software.yml
+ansible-playbook -i hosts.yml -l lai2 -K --ask-vault-pass install_software.yml
 ansible-playbook -i hosts.yml -l lai2 -K veyon_restart.yml
 ansible-playbook -i hosts.yml -l lai2 --verbose --ask-vault-pass -K upgrade.yml
 
